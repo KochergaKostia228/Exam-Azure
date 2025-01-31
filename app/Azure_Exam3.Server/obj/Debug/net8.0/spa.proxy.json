@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:5173",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\Артем\\source\\repos\\Azure_Exam3\\Azure_Exam3.Server\\..\\azure_exam3.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}

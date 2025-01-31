@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: app/Azure_Exam3.Server/Dockerfile
+    container_name: azure_exam_server
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "5000:80"
+    networks:
+      - app_network
+    depends_on:
+      - db
+
+  client:
+    build:
+      context: .
+      dockerfile: app/Azure_Exam3.Client/Dockerfile
+    container_name: azure_exam_client
+    ports:
+      - "3000:80"
+    networks:
+      - app_network
+
+  db:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: azure_exam_db
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    ports:
+      - "3308:3308"
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: admin
+    ports:
+      - "8080:80"
+    networks:
+      - app_network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "70:80"
+    networks:
+      - app_network
+    depends_on:
+      - client
+      - server
+
+volumes:
+  mariadb_data:
+
+networks:
+  app_network:
+    driver: bridge

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "EoZTdwVDpk8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Артем\\source\\repos\\Azure_Exam3\\Azure_Exam3.Server\\Azure_Exam3.Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Артем\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.12\\microsoft.aspnetcore.spaproxy.8.0.12.nupkg.sha512",
+    "C:\\Users\\Артем\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}
